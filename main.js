@@ -17,23 +17,17 @@ const obj = {
   },
 };
 
-// Object.keys(obj).forEach(key => {
-//   console.log(key, obj[key]);
-// });
-let x = Object.values(obj)
-console.log(x)
-let y = Object.keys(obj)[0]
-console.log(y)
-let z = Object.entries(obj)
-console.log(z[0][1])
-//stuck
+Object.entries(obj).forEach(key => {
+  console.log(`user1 is called ${key[1].name} and is ${key[1].age}`);
+});
+
 
 
 
 
 
 // Use Object Methods
-//Create an albphabeticl list of every folder in the documents object (the keys are the folders)
+//Create a list of every folder in the documents object (the keys are the folders)
 //Create a list of every file in the documents object. one list.
 const documents = {
   taxes: ['2010.xlx', '2020.xlx'],
@@ -42,9 +36,9 @@ const documents = {
   Clubhouse: ['paty.jpg', 'christmasRules.pdf', 'pool.txt'],
 };
 
-let alphabetValues = Object.values(documents)
+let alphabetValues = Object.entries(documents).flat(2)
 console.log(alphabetValues)
-//dont know how to merge other than concat 
+
 
 
 //Are the two books alike? Create a function and Use Object methods to find out. Change object values to test for non-alike objects
@@ -60,14 +54,25 @@ const book2 = {
 };
 
 const compare = (book1, book2) => {
-  const keys1 = Object.keys(book1);// returns an array of keys
-  const keys2 = Object.keys(book2);
-  if (keys1.length !== keys2.length) {
+  const values1 = Object.values(book1);// returns an array of keys
+  const values2 = Object.values(book2);
+  const keys1 = Object.keys(book1)
+  const keys2 = Object.keys(book2)
+  
+  if (values1 !== values2) {
     return false;
+  } else {
+    true
   }
-  return true
+
+  if (keys1 === keys2) {
+    return true
+  } else {
+    false
+  }
 }
 
+
 console.log(compare(book1,book2))
-//couldnt think this one further
+
 
